@@ -1,6 +1,12 @@
-- misskeyのディレクトリ名をmisskey，コンテナ名をmisskey-web，ネットワーク名をexternal_networkとする．
+- misskeyのディレクトリ名をmisskey,ネットワーク名をexternal_networkとする．
+  - nginx側のネットワークをmisskey_external_networkに入れるため
+
+- misskeyのコンテナ名をmisskey-webとする
+  - proxy_passをhttp://misskey-web:3000に固定するため
 
 - Cloudflare側でhttpsリダイレクトをオンに，sslをstrict，Authenticated origin pullをオン，Auto Minifyをオフにする．
+  - Cloudflare側でhttpsにリダイレクトさせたいとき，nginxで80番ポートをリダイレクトさせるとループに入る．（confから消す）
+  - Auto Minifyが入ってるとおかしくなるらしい
 
 ```
 .

@@ -1,0 +1,18 @@
+version: "3"
+services:
+  nginx:
+    image: nginx:latest
+    container_name: reverse-proxy
+    restart: always
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./config/:/etc/nginx/conf.d/
+      - ./cloudflare/:/etc/cloudflare/
+    networks:
+      - misskey_external_network
+
+networks:
+  misskey_external_network:
+    external: true

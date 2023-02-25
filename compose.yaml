@@ -1,8 +1,7 @@
-version: "3"
 services:
   nginx:
     image: nginx:latest
-    container_name: reverse-proxy
+    container_name: misskey-reverse-proxy
     restart: always
     ports:
       - "80:80"

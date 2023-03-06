@@ -1,3 +1,7 @@
-misskey/docker.env
-misskey/default.yml
+misskey/.config
+misskey/db
+misskey/redis
+misskey/files
+misskey/backup
+
 reverse-proxy/cloudflare

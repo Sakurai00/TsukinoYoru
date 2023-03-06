@@ -1,11 +1,12 @@
 #!/bin/bash
 
-MISSKEY_DIR=misskey
+MISSKEY_DIR="$HOME/tsukinoyoru/misskey"
 BACKUP_DIR=backup
+
 DB_SERVICE=db
 USERNAME=sakurai
 
-cd "$HOME/${MISSKEY_DIR}"
+cd "${MISSKEY_DIR}"
 
 if [ ! -e BACKUP_DIR ]; then
     mkdir -p ${BACKUP_DIR};

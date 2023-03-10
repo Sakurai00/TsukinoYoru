@@ -19,6 +19,11 @@ services:
     volumes:
       - ./files:/misskey/files
       - ./.config:/misskey/.config:ro
+    logging:
+      driver: json-file
+      options:
+        max-size: 1m
+        max-file: '3'
 
   redis:
     container_name: misskey-redis
@@ -32,6 +37,11 @@ services:
       test: "redis-cli ping"
       interval: 5s
       retries: 20
+    logging:
+      driver: json-file
+      options:
+        max-size: 1m
+        max-file: '3'
 
   db:
     container_name: misskey-db
@@ -47,7 +57,11 @@ services:
       test: "pg_isready -U $$POSTGRES_USER -d $$POSTGRES_DB"
       interval: 5s
       retries: 20
-
+    logging:
+      driver: json-file
+      options:
+        max-size: 1m
+        max-file: '3'
 
 networks:
   internal_network:
